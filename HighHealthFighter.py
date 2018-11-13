@@ -1,0 +1,1 @@
+class HighHealthFighter(Hero, pygame.sprite.Sprite):
