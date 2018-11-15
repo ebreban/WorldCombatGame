@@ -1,3 +1,4 @@
+import pygame
 class Hero():
 	def __init__(self, name, x, y, direction, image, health):
         pygame.sprite.Sprite.__init__(self)

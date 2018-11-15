@@ -1,3 +1,4 @@
+import pygame
 class DamagePowerUp(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, dval, x , y , direction)

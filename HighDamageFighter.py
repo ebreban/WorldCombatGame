@@ -1,3 +1,5 @@
+import pygame
+import Hero
 class HighDamageFighter(Hero , pygame.sprite.Sprite):
 
     def __init__(self, name, health, damage):
