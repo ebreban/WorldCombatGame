@@ -29,7 +29,7 @@ class Hero():
             return False
         else:
             print("successful attack")
-        return True
+            return True
     def update(self):
         if direction == "right" :
             self.rect.centerx  += 10
