@@ -14,23 +14,7 @@ class Controller:
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.background = pygame.Surface(self.screen.get_size()).convert()
-        pygame.font.init() 
-
-        typestore = ""
-        for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-                if two player
-                	#allow player1 to choose which fighter to use
-                	#create an instance of that fighter
-                	#allow player2 to choose which fighter to use
-                	#create an instance of that fighter
-
-                if single player
-                		#allow player to choose which fighter to use
-                		#create an instance of that fighter
-                		#create an instance of the opposite fighter to serve as an enemy
-                   
+        pygame.font.init()
                         
     def mainLoop(self):
         while True:
@@ -54,3 +38,7 @@ class Controller:
                         self.hero.move_left()
                     elif(event.key == pygame.K_RIGHT):
                         self.hero.move_right()
+        """redraw screen"""
+        self.screen.blit(self.background, (0, 0))
+            if(self.hero.health == 0):
+                self.state = "GAMEOVER"
