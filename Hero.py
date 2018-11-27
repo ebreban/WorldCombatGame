@@ -1,19 +1,19 @@
 import pygame
 class Hero():
-	def __init__(self, name, x, y, direction, img_file, health):
+    def __init__(self, name, x, y, direction, img_file, health):
         pygame.sprite.Sprite.__init__(self)
         self.name = name
+        self.image = pygame.image.load(img_file).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.centerx  = x
         self.rect.centery  = y
-        self.image = pygame.image.load(img_file).convert_alpha()
         self.direction = direction
-       	self.yVel = 0
+        self.yVel = 0
         self.gravity = 1.2
-    	self.isJumping = false
+        self.isJumping = false
         self.health = 100
-    	if(self.direction == "right"):
-            self.image = pygame.transform.flip()
+        if(self.direction == "right"):
+        self.image = pygame.transform.flip()
 	def jump():
 		if (isJumping == false) 
         	self.yVel = -15
@@ -23,8 +23,8 @@ class Hero():
     def move_left(self):
     	 self.rect.x -= self.speed
     def fight(self, opponent):
-        if(self.health - opponent.damage() > 0):
-            self.health -= opponent.damage()
+        if(self.health - opponent.doDamage() > 0):
+            self.health -= opponent.doDamage()
             print("attack failed. Remaining Health: ", self.health)
             return False
         else:
@@ -41,3 +41,4 @@ class Hero():
                 self.rect.y = characterGround
                 yVel = 0
                 isJumping = false
+#use function to make them face each other
