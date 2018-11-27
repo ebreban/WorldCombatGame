@@ -1,6 +1,6 @@
 import sys
 import pygame
-from src import Hero
+#from src import Hero
 from src import HighDamageFighter
 from src import HighHealthFighter
 from src import DamagePowerUp

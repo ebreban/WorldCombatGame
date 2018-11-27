@@ -13,8 +13,8 @@ class Hero():
         self.isJumping = false
         self.health = 100
         if(self.direction == "right"):
-        self.image = pygame.transform.flip()
-	def jump():
+            self.image = pygame.transform.flip()
+    def jump():
 		if (isJumping == false) 
         	self.yVel = -15
         	self.isJumping = true
