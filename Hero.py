@@ -15,7 +15,7 @@ class Hero():
         if(self.direction == "right"):
             self.image = pygame.transform.flip()
     def jump():
-		if (isJumping == false) 
+	    if (isJumping == false):
         	self.yVel = -15
         	self.isJumping = true
     def move_right(self):
@@ -34,10 +34,10 @@ class Hero():
         if direction == "right" :
             self.rect.centerx  += 10
             self.rect.centery  += 10
-        if (isJumping) {
+        if (isJumping):
             yVel += gravity
             self.rect.y += yVel
-            if (self.rect.y > characterGround) 
+            if (self.rect.y > characterGround): 
                 self.rect.y = characterGround
                 yVel = 0
                 isJumping = false

@@ -9,5 +9,4 @@ class HealthPowerUp(pygame.sprite.Sprite):
         self.rect.centery  = y
     def applyHealthUpgrade(self , hero):
             self.hero.health += hval 
-    def update(self):
         

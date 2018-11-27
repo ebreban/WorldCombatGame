@@ -1,11 +1,11 @@
 import sys
 import pygame
-#from src import Hero
-from src import HighDamageFighter
-from src import HighHealthFighter
-from src import DamagePowerUp
-from src import HealthPowerUp
-from src import Arrow
+import Hero
+import HighDamageFighter
+import HighHealthFighter
+import DamagePowerUp
+import HealthPowerUp
+import Arrow
 
 class Controller:
     def __init__(self, width=640, height=480):
@@ -40,5 +40,5 @@ class Controller:
                         self.hero.move_right()
         """redraw screen"""
         self.screen.blit(self.background, (0, 0))
-            if(self.hero.health == 0):
-                self.state = "GAMEOVER"
+        if(self.hero.health == 0):
+            self.state = "GAMEOVER"

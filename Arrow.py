@@ -10,6 +10,6 @@ class Arrow(pygame.sprite.Sprite):
         if(self.direction == "right"):
                 self.image = pygame.transform.flip()
     def update(self):
-        if direction == "right" 
+        if direction == "right": 
             self.rect.centerx  += 10
             self.rect.centery  += 10
