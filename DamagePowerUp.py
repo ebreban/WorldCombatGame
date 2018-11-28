@@ -7,5 +7,23 @@ class DamagePowerUp(pygame.sprite.Sprite):
         self.dval = dval
         self.rect.centerx  = x
         self.rect.centery  = y
+
     def applyDamageUpgrade(self , Hero):
-            self.hero.damageDone += dval
+        """
+            adds the damage upgrade
+        """
+        hero.setDamage(hero.getDamage + dval)
+
+
+    def setPos(self,x , y):
+        """
+            sets the position of the power-up 
+        """
+        self.rect.centerx = x
+        self.rect.centery = y    
+    def getPos(self):
+        """
+            returns the postion of the power-up in a tuple (centerx,centery)
+        """
+        return (self.rect.centerx,self.rect.centery)
+

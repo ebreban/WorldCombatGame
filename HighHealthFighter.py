@@ -7,5 +7,4 @@ class HighHealthFighter(Hero):
         self.health = 300
         self.damage = 25
         self.restTime = 1 
-    def doDamage(self):
-    	return self.damage
+    
