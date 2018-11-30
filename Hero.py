@@ -16,7 +16,7 @@ class Hero():
     
         #flips the character
         if(self.direction == "right"):
-            self.image = pygame.transform.flip()
+            self.image = pygame.transform.flip(self.image)
 
     def jump():
         """
