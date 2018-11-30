@@ -2,9 +2,9 @@
 ## CS 110 Final Project
 ### Fall 2018
 
-https://github.com/binghamtonuniversity-cs110/final-project-fall18-seal-team-six(#)
+https://github.com/binghamtonuniversity-cs110/final-project-fall18-seal-team-six
 
-https://docs.google.com/presentation/d/1FLJ5FqtJcUqq2rhltYa_9BkCrMSrcOTkTFZZYjY7py4/edit#slide=id.p(#)
+https://docs.google.com/presentation/d/1FLJ5FqtJcUqq2rhltYa_9BkCrMSrcOTkTFZZYjY7py4/edit#slide=id.p
 
 ### Seal Team Six:
 #### Zane Benjamin-Herchanik, Cole Cipp, Ethan Breban
@@ -79,8 +79,7 @@ We then try to reach a win state, to check if it resets the game with an increas
 |  2  |Click "Instructions" button| 1) The instructions page opens and clear instructions are displayed for playing the game |   |
 |  3  |Click “Exit” button|1) Returns to the main menu, menu is normal and functional    |                 |
 |  4  |Click “Play” button | 1) The character selection screen opens and displays the two possible character choices |                 |
-|  5  | Character Selection | 1) Player 1 is prompted to select one of two characters
-2) Once player 1 has selected their character, player 2 is assigned the character that player 1 did not choose.  
+|  5  | Character Selection | 1) Player 1 is prompted to select one of two characters, 2) Once player 1 has selected their character, player 2 is assigned the character that player 1 did not choose.  
  |                 |
 |  6  |   |      |                 |
 |  7  |   |      |                 |
