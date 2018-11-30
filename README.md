@@ -78,9 +78,8 @@ We then try to reach a win state, to check if it resets the game with an increas
 |  1  | Run Controller() | 1) The main menu opens and is functioning  |          |
 |  2  |Click "Instructions" button| 1) The instructions page opens and clear instructions are displayed for playing the game |   |
 |  3  |Click “Exit” button|1) Returns to the main menu, menu is normal and functional    |                 |
-|  4  |Click “Play” button | 1) The character selection screen opens and displays the two possible character choices |                 |
-|  5  | Character Selection | 1) Player 1 is prompted to select one of two characters <br> 2) Once player 1 has selected their character, player 2 is assigned the character that player 1 did not choose.  
- |                 |
+|  4  |Click “Play” button | 1) The character selection screen opens and displays the two possible character choices |       |
+|  5  | Character Selection | 1) Player 1 is prompted to select one of two characters <br> 2) Once player 1 has selected their character, player 2 is assigned the character that player 1 did not choose.  |                 |
 |  6  | Press ‘A’ key, hold ‘A’ key | 1) Player 1’s character moves to the left <br> 2) Player 1’s character continues to move to the left while left arrow is held  
  |                 |
 |  7  |   |      |                 |
