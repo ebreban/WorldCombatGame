@@ -60,7 +60,8 @@ The back end specialist helped with the “Model” portion of BLOCKBUSTERS by w
 First, we run Controller() by running the file 'main.py' in the terminal and ensure that it opens the main menu. Then, we click on the 'Instructions' button to ensure that the Instructions menu is opened which should display the controls for the game. 
 
 Next, we press the 'Exit' button from the Instructions menu to ensure that it returns the user to the main menu. 
-<br>
+
+
 (Example)
 First, we run Controller()  and ensure the main menu opens normally, the musical score begins playing and that hovering the mouse over each button changes the color to the “highlighted” shade. Next, we click the Instructions button to ensure the INSTRUCTIONS menu opens, and the buttons are highlighted when hovered over as well. We also check to see if the music playback continues and that the sound effect is played when the button is pressed.
 
