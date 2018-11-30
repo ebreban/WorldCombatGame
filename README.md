@@ -3,32 +3,32 @@
     * Github URL
     * Project Demo Presentation as Google Slide URL
 Example:
-# Project Title
+# World Combat
 ## CS 110 Final Project
-### Semester, Year
+### Fall 2018
 
-[https://github.com/<repo>](#)
+https://github.com/binghamtonuniversity-cs110/final-project-fall18-seal-team-six(#)
 
-[link to demo presentation slides](#)
+https://docs.google.com/presentation/d/1FLJ5FqtJcUqq2rhltYa_9BkCrMSrcOTkTFZZYjY7py4/edit#slide=id.p(#)
 
-### Team:
-#### Team Names
+### Seal Team Six:
+#### Zane Benjamin-Herchanik, Cole Cipp, Ethan Breban
 
 ***
 
-## Project Description
+## I. Description of Project
 Give an overview of your project
 
 ***    
 
-## User Interface Design
+## II. User Interface Design
 * A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program.
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
     * You should also have a screenshot of your final GUI
 
 ***        
 
-## Program Design
+## III. Program Design
 * You should have a list of any additional libraries or modules used (pygame, request) beyond non-standard python.
     * For each additional module you should include
         * url for the module documentation
@@ -40,22 +40,22 @@ Give an overview of your project
 
 ***
 
-## Tasks and Responsibilities
+## IV. Tasks and Responsibilities
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
     * Example:
-### Software Lead - [name]
+### Software Lead - Zane Benjamin-Herchanik
 
 Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. He worked very closely with the back end to develop the high-score database functionality, as well as establish the win- and fail-states for the main game. He also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
 
-### Front End Specialist - [name]
+### Front End Specialist - Cole Cipp
 
 Front-end lead conducted significant research on using pygame to create visual aspects such as buttons and on-screen text. She used this information to design and program a consistent UI to help the player navigate the title screen, the instructions page, and the “GAME OVER” screen. In addition to implementing the wide majority of the visual element for the UI, she also collaborated with the Software Lead to create a jukebox function that played music and to add sound effects to the menu navigation buttons.
 
-### Back End Specialist - [name]
+### Back End Specialist - Ethan Breban
 
 The back end specialist helped with the “Model” portion of BLOCKBUSTERS by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also made headway in major game mechanics such as the basic paddle movement and advanced functionality such as the screen-wrap function for the paddle as it approached the ends of the screen. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, as well as develop our high-score database.
 
-## Testing
+## V. Testing
 * Describe your testing strategy for your project.
     * Example
 
