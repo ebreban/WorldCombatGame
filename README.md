@@ -80,6 +80,14 @@ We then try to reach a win state, to check if it resets the game with an increas
 
 | Step                  | Procedure     | Expected Results  | Actual Results |
 | ----------------------|:-------------:| -----------------:| -------------- |
-|  1  | Run Counter Program  | GUI window appears with count = 0  |          |
-|  2  | click count button  | display changes to count = 1 |                 |
-etc...
+|  1  | Run Controller() | 1) The main menu opens and is functioning  |          |
+|  2  | Click "Instructions" button | 1) The instructions page opens and clear instructions are displayed for playing the game  |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
+|    |   |      |                 |
