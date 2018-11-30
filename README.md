@@ -55,6 +55,8 @@ Front-end lead conducted significant research on using pygame to create visual a
 
 The back end specialist helped with the “Model” portion of BLOCKBUSTERS by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also made headway in major game mechanics such as the basic paddle movement and advanced functionality such as the screen-wrap function for the paddle as it approached the ends of the screen. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, as well as develop our high-score database.
 
+***
+
 ## V. Testing
 * Describe your testing strategy for your project.
     * Example
