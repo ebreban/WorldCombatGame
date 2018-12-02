@@ -72,16 +72,9 @@ For player 1's character, we test the 'A' and 'D' keys to ensure that they move 
 
 For player 2's character, we test the left and right arrow keys to ensure that they move the character left and right respectively and work correctly both in single presses and when the keys are held down. We also press the up arrow key to ensure that player 2's jumping works properly and their character jumps and and falls back down to the ground.
 
-Next, we begin to playtest and move both characters around to ensure everthing is functioning properly. Then, we test the power-ups to make sure that they appear properly, do what they are supposed to (improve health or damage) and disappear from the screen once used.
+Next, we begin to playtest and move both characters around to ensure everthing is functioning properly. Then, we test the power-ups to make sure that they appear properly, do what they are supposed to (improve health or damage) and disappear from the screen once used. We then begin to fire arrows with both characters and ensure that they are functional and deal damage to the characters when they are hit.
 
-
-
-(Example)
-When the Game screen boots up , we test if spacebar starts the game and launches the ball, so we test to see if this remains true. From there, in the middle of play, we will test the single-press and holding of both the left and right arrow buttons to make sure movement works in single presses and continues to move when a key is held. We then move all the way to the left and right of the screen to see if it causes the paddle to appear on the other side - our wrap-around function.
-
-From here, we conduct normal playtesting to ensure that the collisions, the speed of the ball, and the dynamic bounding and angles are all working together meaningfully and without any obvious error, especially in regards to the ball reflecting off of the corners and edges of the paddle. We also check to make sure the music plays throughout and that the destruction of a brick does in fact increase the score.
-
-We then try to reach a win state, to check if it resets the game with an increase in ball speed, without resetting the score. If successful, we then purposefully reach three consecutive fail-states, one to test each of the GAME OVER screens’ three buttons - Play Again, Main Menu, and Quit - with the same functionality as before. Finally, we check that the “X” button on the window does in fact close the window. This concludes the testing protocol.
+Lastly, we try to reach the game over state by attacking and killing one of the characters. Once one of the characters is dead, the game over screen should be displayed and should correctly tell the user which player won the game. Finally we test the game over menu's buttons for main menu and quit to ensure that they are functioning properly.
 
 ### Acceptance Test Procedure
 
