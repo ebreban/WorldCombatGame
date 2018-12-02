@@ -60,18 +60,20 @@ The back end specialist helped with the “Model” portion of BLOCKBUSTERS by w
     * Example
 
 ### Menu Testing
-First, we run Controller() by running the file 'main.py' in the terminal and ensure that it opens the main menu. Then, we click on the 'Instructions' button to ensure that the Instructions menu is opened which should display the controls for the game. 
+First, we run Controller() by running the file 'main.py' in the terminal and ensure that it opens the main menu. Then, we click on the 'Instructions' button to ensure that the Instructions menu is opened which should display the controls for the game. Next, we press the 'Exit' button from the Instructions menu to ensure that it returns the user to the main menu. 
 
-Next, we press the 'Exit' button from the Instructions menu to ensure that it returns the user to the main menu. 
-
-
-(Example)
-First, we run Controller()  and ensure the main menu opens normally, the musical score begins playing and that hovering the mouse over each button changes the color to the “highlighted” shade. Next, we click the Instructions button to ensure the INSTRUCTIONS menu opens, and the buttons are highlighted when hovered over as well. We also check to see if the music playback continues and that the sound effect is played when the button is pressed.
-
-We then press the MAIN MENU button and return, checking that the same functionality with button hover, music and sound effects as before are present. Afterwards, we test that both of the QUIT buttons on the Main Menu and Instructions Menu properly close the game.We then test the PLAY buttons on the Instructions and Main Menu pages to make sure that the Game screen opens properly both times. We then move
-
+We then press the 'Fight!' button and make sure that the character selection screen opens properly. Next, we select one of the characters for player 1 and ensure that the other character is selected for player 2. From here, we make sure that the game screen is opened after the characters are selected.
 
 ### Game Testing
+
+Once we have properly opened up the game screen, we begin by checking to see if the characters for players 1 and 2 are the correct characters that were selected previously. Next, we test the movement of each of the characters. 
+
+For player 1's character, we test the 'A' and 'D' keys to ensure that they move the character left and right respectively and work correctly both in single presses and when the keys are held down. We also press the 'W' key to ensure that player 1's jumping works properly and their character jumps and and falls back down to the ground.
+
+For player 2's character, we test the left and right arrow keys to ensure that they move the character left and right respectively and work correctly both in single presses and when the keys are held down. We also press the up arrow key to ensure that player 2's jumping works properly and their character jumps and and falls back down to the ground.
+
+Next, we begin to playtest and move both characters around to ensure everthing is functioning properly. Then, we test the power-ups to make sure that they appear properly, do what they are supposed to (improve health or damage) and disappear from the screen once used.
+
 (Example)
 When the Game screen boots up , we test if spacebar starts the game and launches the ball, so we test to see if this remains true. From there, in the middle of play, we will test the single-press and holding of both the left and right arrow buttons to make sure movement works in single presses and continues to move when a key is held. We then move all the way to the left and right of the screen to see if it causes the paddle to appear on the other side - our wrap-around function.
 
@@ -86,7 +88,7 @@ We then try to reach a win state, to check if it resets the game with an increas
 |  1  | Run Controller() | 1) The main menu opens and is functioning  |          |
 |  2  |Click "Instructions" button| 1) The instructions page opens and clear instructions are displayed for playing the game| |
 |  3  |Click “Exit” button|1) Returns to the main menu, menu is normal and functional    |                 |
-|  4  |Click “Play” button | 1) The character selection screen opens and displays the two possible character choices |       |
+|  4  |Click “Fight!” button | 1) The character selection screen opens and displays the two possible character choices |       |
 |  5  | Character Selection | 1) Player 1 is prompted to select one of two characters <br> 2) Once player 1 has selected their character, player 2 is assigned the character that player 1 did not choose.  |                 |
 |  6  | Press ‘A’ key, hold ‘A’ key | 1) Player 1’s character moves to the left <br> 2) Player 1’s character continues to move to the left while left arrow is held |                 |
 |  7  | Press ‘D’ key, hold ‘D’ key | 1) Player 1’s character moves to the right <br> 2) Player 1’s character continues to move to the right while right arrow is held  |           |
