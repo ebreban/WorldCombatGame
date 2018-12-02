@@ -44,6 +44,7 @@ class Controller:
             self.healthPower = healthPower.HealthPowerUp()
         elif powerup == "b":
             self.DamagePower = DamagePower.DamagePowerUp()
+        self.state = "GAME"
 
 
 
@@ -55,19 +56,19 @@ class Controller:
                 self.gameOver()
    
     def displayMainMenu():
-        temp = pygame.image.load(temp)
-        pygame.surface.blit()
+        temp = pygame.image.load()
+        pygame.surface.blit(temp)
    
     def dislayInstructions():
-        temp = pygame.image.load(temp)
-        pygame.surface.blit()
+        temp = pygame.image.load()
+        pygame.surface.blit(temp)
    
     def pickPlayerScreen():
         temp = pygame.image.load()
         pygame.surface.blit(temp)
    
     def gameLoop(self):
-          """This is the Main Loop of the Game"""
+        """This is the Main Loop of the Game"""
         
         #what is the point of this
         pygame.key.set_repeat(1,50)
@@ -104,17 +105,21 @@ class Controller:
             timeRunning = font.render('time: '+ str(pygame.time.get_ticks()/1000), False, (250,0,0))
             f = open("highscore.json", "r")
             highscoreDict = json.loads(f)
-            keys = highscoreDict.keys()
-            for key in highscoreDict:
-                if timeRunning > lowestScore :
-                    lowestScore = highscoreDict[key]
-                    lowestScoreKey = key
-            z.write()
+            scorelist = [highscoreDict.values()]
+            for i in range(len(scoreList)):
+                if timeRunning < i:
+                    scoreList.append(timeRunning)
+                    break
+            scoreList.sort()
+            
 
             """redraw screen"""
             self.screen.blit(self.background, (0, 0))
             if(self.hero.health == 0):
                 self.state = "GAMEOVER"
+            pygame.display.flip()
+
+
     def gameOver(self):
         self.player1.kill()
         self.player1Arrow.kill()
