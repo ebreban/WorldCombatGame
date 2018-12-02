@@ -55,15 +55,15 @@ class Controller:
             elif(self.state == "GAMEOVER"):
                 self.gameOver()
    
-    def displayMainMenu():
+    def displayMainMenu(self):
         temp = pygame.image.load()
         pygame.surface.blit(temp)
    
-    def dislayInstructions():
+    def dislayInstructions(self):
         temp = pygame.image.load()
         pygame.surface.blit(temp)
    
-    def pickPlayerScreen():
+    def pickPlayerScreen(self):
         temp = pygame.image.load()
         pygame.surface.blit(temp)
    
