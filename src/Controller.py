@@ -53,22 +53,22 @@ class Controller:
                 self.gameLoop()
             elif(self.state == "GAMEOVER"):
                 self.gameOver()
-   
+
     def displayMainMenu():
-        temp = pygame.image.load(temp)
+        title = pygame.image.load('assets/titlescreen.png')
         pygame.surface.blit()
-   
+
     def dislayInstructions():
         temp = pygame.image.load(temp)
         pygame.surface.blit()
-   
+
     def pickPlayerScreen():
         temp = pygame.image.load()
         pygame.surface.blit(temp)
-   
+
     def gameLoop(self):
           """This is the Main Loop of the Game"""
-        
+
         #what is the point of this
         pygame.key.set_repeat(1,50)
 
@@ -97,7 +97,7 @@ class Controller:
             #check for collisions
 
 
-        
+
 
 
             #data permanance feature
@@ -118,10 +118,10 @@ class Controller:
     def gameOver(self):
         self.player1.kill()
         self.player1Arrow.kill()
-        self.player2.kill() 
-        self.player2Arrow.kill() 
+        self.player2.kill()
+        self.player2Arrow.kill()
         self.healthPower.kill()
-        self.DamagePower.kill() 
+        self.DamagePower.kill()
         myfont = pygame.font.SysFont(None, 30)
         message = myfont.render('Game Over', False, (0,0,0))
         self.screen.blit(message, (self.width/2,self.height/2))
