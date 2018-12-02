@@ -39,11 +39,8 @@ Give an overview of your project
 * You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
     * Example:
 ### Software Lead - Zane Benjamin-Herchanik
-Ensured that the team was fully adhering to all specifications in the project description.
 
-
-(EXAMPLE)
-Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. He worked very closely with the back end to develop the high-score database functionality, as well as establish the win- and fail-states for the main game. He also lead the implementation of the ‘sprite’ and ‘group’ classes of pygame into the back end code.
+Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. Ensured that the team was fully adhering to all specifications in the project description. He worked with the back end in writing the code for the Controller(). Also learned to use the markdown language to write the proposal.
 
 ### Front End Specialist - Cole Cipp
 (EXAMPLE)
