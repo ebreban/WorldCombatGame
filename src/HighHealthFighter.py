@@ -1,6 +1,6 @@
 import pygame
-from Hero import Hero
-class HighHealthFighter(Hero):
+from src import Hero
+class HighHealthFighter(Hero.Hero):
     def __init__(self, name):
         Hero.__init__(self)
         self.name = name

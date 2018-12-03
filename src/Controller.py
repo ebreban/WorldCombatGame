@@ -1,11 +1,11 @@
 import sys
 import pygame
-import Hero
-import HighDamageFighter
-import HighHealthFighter
-import DamagePowerUp
-import HealthPowerUp
-import Arrow
+from src import Hero 
+from src import HighDamageFighter 
+from src import HighHealthFighter 
+from src import DamagePowerUp
+from src import HealthPowerUp
+from src import Arrow
 import random
 
 class Controller:
@@ -47,22 +47,22 @@ class Controller:
         self.screen.blit(mouseLabel, (30,30))
    
     def displayInstructions(self):
-        Instructions = pygame.image.load('assets\InstructionsScreen.png')
+        Instructions = pygame.image.load('assets/InstructionsScreen.png')
         self.screen.blit(Instructions, (0,0))
 
     def displayMainMenu(self):
-        title = pygame.image.load('assets\TitleScreen.png')
+        title = pygame.image.load('assets/TitleScreen.png')
         self.screen.blit(title, (0,0))
 
     def pickPlayerScreen(self):
 
-        Select = pygame.image.load('assets\SelectScreen.png')
+        Select = pygame.image.load('assets/SelectScreen.png')
         self.screen.blit(Select, (0,0))
     def GameScreen(self):
-        Background = pygame.image.load('assets\GameScreen.png')
+        Background = pygame.image.load('assets/GameScreen.png')
         self.screen.blit(Background, (0,0))
     def ScoreScreen(self):
-        scoreBoard = pygame.image.load("assets\ScoreScreen.png")
+        scoreBoard = pygame.image.load("assets/ScoreScreen.png")
         self.screen.blit(scoreBoard, (0,0))
         
     def menuLoop(self):
