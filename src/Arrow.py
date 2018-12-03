@@ -1,7 +1,7 @@
 import pygame
 class Arrow(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self, x , y , direction)
+        pygame.sprite.Sprite.__init__(self, x , y , direction, img_file)
         self.image = pygame.image.load(img_file).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.centerx  = x

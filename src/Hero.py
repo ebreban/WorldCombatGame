@@ -18,7 +18,7 @@ class Hero():
         if(self.direction == "right"):
             self.image = pygame.transform.flip(self.image)
 
-    def jump():
+    def jump(self):
         """
             tests to make sure the hero isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 
         """

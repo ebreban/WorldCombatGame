@@ -114,17 +114,17 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if 13 > mouse[0] > 153 and 21 > mouse[1] > 54:
+                if 13+140 > mouse[0] > 13 and 21+33 > mouse[1] > 21:
                     if pygame.mouse.get_pressed():
                         self.state = "MAIN"
-                elif 128 > mouse[0] > 499 and 116 > mouse[1] > 196:
+                elif 128+371 > mouse[0] > 128 and 116+80 > mouse[1] > 116:
                     if pygame.mouse.get_pressed():
                         self.state = "GAME"
                         self.player1 = player1.HighHealthFighter()
                         self.player1Arrow = player1Arrow.Arrow()
                         self.player2 = player2.HighDamageFighter()
                         self.player2Arrow = player2Arrow.Arrow()
-                elif 128 > mouse[0] > 499 and 294 > mouse[1] > 376:
+                elif 128+371 > mouse[0] > 128 and 294+82 > mouse[1] > 294:
                     if pygame.mouse.get_pressed():
                         self.state = "GAME"
                         self.player2 = player2.HighHealthFighter()
@@ -171,22 +171,27 @@ class Controller:
             '''
 
             #data permanance feature
-            '''timeRunning = font.render('time: '+ str(pygame.time.get_ticks()/1000), False, (250,0,0))
-            f = open("highscore.json", "r")
-            highscoreDict = json.loads(f)
+            timeRunning = font.render('time: '+ str(pygame.time.get_ticks()/1000), False, (250,0,0))
+            f = open("highscore.json", "rw")
+            highscoreDict = json.load(f)
             scorelist = [highscoreDict.values()]
             for i in range(len(scoreList)):
-                if timeRunning < i:
+                if timeRunning < scoreList[i]:
                     scoreList.append(timeRunning)
                     break
-            scoreList.sort()'''
+            scoreList.sort()
+            newdict = {}
+            for i in range(10):
+                newdict[str(i)] = scorelist[i]
+            json.dump(newdict)
+            
             
 
             """redraw screen"""
-            self.screen.blit(self.background, (0, 0))
+            #self.screen.blit(self.background, (0, 0))
             '''if(self.hero.health == 0):
                 self.state = "GAMEOVER"'''
-            pygame.display.flip()
+            #pygame.display.flip()
             
 
 
