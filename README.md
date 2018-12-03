@@ -38,19 +38,19 @@ The fighting game genre has been one of the most popular in the industry since t
 ### Class and File Relationships
 
 ### List of Classes
-* Hero - A  parent class that defines the main fighter of the game - the class defines movement features such as moving left, moving right, and jumping. The class also defines values for the damage and health of the fighter. The class also contains a fight method which returns true or false depending on whether or not the hero has no more health. The class also contains accessor and mutator methods for all values defined in the class
+* __Hero__ - A  parent class that defines the main fighter of the game - the class defines movement features such as moving left, moving right, and jumping. The class also defines values for the damage and health of the fighter. The class also contains a fight method which returns true or false depending on whether or not the hero has no more health. The class also contains accessor and mutator methods for all values defined in the class
 
-* HighHealthFighter - A class that inherits from the Hero class and sets the health value of the fighter to a higher value than the default health value established in the hero class.
+* __HighHealthFighter__ - A class that inherits from the Hero class and sets the health value of the fighter to a higher value than the default health value established in the hero class.
 
-* HighDamageFighter -A class that inherits from the Hero class and sets the damage value of the fighter to a higher value than the default damage value established in the hero class.
+* __HighDamageFighter__ -A class that inherits from the Hero class and sets the damage value of the fighter to a higher value than the default damage value established in the hero class.
 
-* HighHealthPowerUp - A minor class that increases the health value of any hero object when they collide. Has a method called applyHealthUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
+* __HighHealthPowerUp__ - A minor class that increases the health value of any hero object when they collide. Has a method called applyHealthUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
 
-* HighDamagePowerUp - A minor class that increases the health value of any hero object when they collide.Has a method called applyDamageUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
+* __HighDamagePowerUp__ - A minor class that increases the health value of any hero object when they collide.Has a method called applyDamageUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
 
-* Arrow - a minor class which serves as the tool that inflicts damage to the fighters. Has accessor and  mutator methods in order to get and move the position of the arrow.
+* __Arrow__ - a minor class which serves as the tool that inflicts damage to the fighters. Has accessor and  mutator methods in order to get and move the position of the arrow.
 
-* Controller - A class that defines the “rules” and logic of the interlocking relationships between the other classes and UI, as well as establishes the data permanence of the high score, and opens the actual game window itself. The collision functions, key bindings, and refresh rate are established here, and it calls each of the prior classes and their UI elements to “load” them when ran.
+* __Controller__ - A class that defines the “rules” and logic of the interlocking relationships between the other classes and UI, as well as establishes the data permanence of the high score, and opens the actual game window itself. The collision functions, key bindings, and refresh rate are established here, and it calls each of the prior classes and their UI elements to “load” them when ran.
 
 
 ***
