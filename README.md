@@ -12,7 +12,7 @@ https://docs.google.com/presentation/d/1FLJ5FqtJcUqq2rhltYa_9BkCrMSrcOTkTFZZYjY7
 ***
 
 ## I. Description of Project
-Give an overview of your project
+The fighting game genre has been one of the most popular in the industry since the times of the original Street Fighter. With 'World Combat', our group decided to put a spin on the traditional 2D two-player fighting game by implementing a projectile-based combat system rather than relying mostly on hand-to-hand combat like many fighting games tend to do. An element of variety and strategy is implemented into the game through randomly appearing power-ups and the player's choice of one of two characters: one which has high damage output, and one which has high health.
 
 ***    
 
@@ -32,6 +32,26 @@ Give an overview of your project
     * A simple drawing that shows the class relationships in your code (see the sample Proposal document for an example).
     * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
 * You should have a list of each of your classes with a description.
+### Non-Standard Libraries and Modules Used
+* Pygame (https://www.pygame.org/) - A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality
+
+### Class and File Relationships
+
+### List of Classes
+* Hero - A  parent class that defines the main fighter of the game - the class defines movement features such as moving left, moving right, and jumping. The class also defines values for the damage and health of the fighter. The class also contains a fight method which returns true or false depending on whether or not the hero has no more health. The class also contains accessor and mutator methods for all values defined in the class
+
+* HighHealthFighter - A class that inherits from the Hero class and sets the health value of the fighter to a higher value than the default health value established in the hero class.
+
+* HighDamageFighter -A class that inherits from the Hero class and sets the damage value of the fighter to a higher value than the default damage value established in the hero class.
+
+* HighHealthPowerUp - A minor class that increases the health value of any hero object when they collide. Has a method called applyHealthUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
+
+* HighDamagePowerUp - A minor class that increases the health value of any hero object when they collide.Has a method called applyDamageUprgade which applys the health upgrade as well as an accessor and mutator method for its position.
+
+* Arrow - a minor class which serves as the tool that inflicts damage to the fighters. Has accessor and  mutator methods in order to get and move the position of the arrow.
+
+* Controller - A class that defines the “rules” and logic of the interlocking relationships between the other classes and UI, as well as establishes the data permanence of the high score, and opens the actual game window itself. The collision functions, key bindings, and refresh rate are established here, and it calls each of the prior classes and their UI elements to “load” them when ran.
+
 
 ***
 
