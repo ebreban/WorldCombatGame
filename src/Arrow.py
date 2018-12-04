@@ -7,10 +7,12 @@ class Arrow(pygame.sprite.Sprite):
         self.rect.centerx  = x
         self.rect.centery  = y
         self.direction = direction
+        self.speed = 10
+        self.shoot = False
         
-        #flips the character
-        #if(self.direction == "right"):
-        #        self.image = pygame.transform.flip()
+
+        if(self.direction == "right"):
+                self.image = pygame.transform.flip(self.image,True,False)
     def getPos(self):
         """
             returns the postion of the power-up in a tuple (centerx,centery)
@@ -26,6 +28,4 @@ class Arrow(pygame.sprite.Sprite):
 
     def update(self):
         #implements the flip
-        if direction == "right": 
-            self.rect.centerx  += 10
-            self.rect.centery  += 10
+        self.rect.centerx  += self.speed

@@ -9,35 +9,37 @@ class Hero():
         self.rect.centery  = y
         self.direction = direction
         self.yVel = 0
-        self.gravity = 1.2
+        self.gravity = 4
         self.isJumping = False
         self.health = 100
         self.damage = 100
+        self.characterGround = y
     
-        #flips the character
-        #if(self.direction == "right"):
-        #    self.image = pygame.transform.flip(self.image,self.centerx,self,centery)
+        
+        if(self.direction == "right"):
+            self.image = pygame.transform.flip(self.image,True,False)
 
     def jump(self):
         """
             tests to make sure the hero isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 
         """
-        if (self.isJumping == False):
-        	self.yVel = -15
-        	self.isJumping = True
-    
+        #if (self.isJumping == False):
+        #	self.yVel = -15
+        #	self.isJumping = True
+        self.rect.centery -= 80
+        self.isJumping = True
     
     def moveRight(self):
         """
             moves the character to the right
         """
-        self.rect.x += 10
+        self.rect.centerx += 10
     
     def moveLeft(self):
         """
             moves the character to the left
         """
-        self.rect.x -= 10
+        self.rect.centerx -= 10
     
     def fight(self, opponent):
         """
@@ -76,7 +78,7 @@ class Hero():
         """
             returns the postion of the hero in a tuple (centerx,centery)
         """
-        return (self.rect.centerx,self.rect.centery)
+        return (self.rect.centery,self.rect.centerx)
 
     def setPos(self,x , y):
         """
@@ -88,18 +90,15 @@ class Hero():
     def update(self):
         
         #implements switching the direction the character faces
-        if direction == "right" :
-            self.rect.centerx  += 10
-            self.rect.centery  += 10
+        #if self.direction == "right" :
+        #    self.rect.centerx  += 10
+        #    self.rect.centery  += 10
         
         #implements the isJump
-        if (isJumping):
-            yVel += gravity
-            self.rect.y += yVel
-            if (self.rect.y > characterGround): 
-                self.rect.y = characterGround
-                yVel = 0
-                isJumping = false
+        if (self.isJumping):
+            self.rect.centery += self.gravity
+            if(self.rect.centery == self.characterGround):
+                self.isJumping = False
 
 
 #use function to make them face each other
