@@ -65,7 +65,15 @@ class Controller:
     def ScoreScreen(self):
         scoreBoard = pygame.image.load(pathname("assets/ScoreScreen.png"))
         self.screen.blit(scoreBoard, (0,0))
-        
+        f = open("highscore.json", "r")
+        HD = json.load(f)
+        sList = list(HD.values())
+        temp = 120
+        self.printJSON("In Seconds",420,93,20,0,0,0)
+        for i in range(1,11):    
+            self.printJSON(str(i),220,temp,20,250,250,250)
+            self.printJSON(HD[str(i)],260,temp,20,250,250,250)
+            temp +=34
     def menuLoop(self):
         while self.state == "MAIN":
             mouse = pygame.mouse.get_pos()
@@ -147,20 +155,13 @@ class Controller:
 
                     
     def gameLoop(self):
+        #pygame.key.set_repeat(10,10)
         while self.state == "GAME":
             self.GameScreen()
-            # self.player1.centerx = 30
-            # self.player1.centery = 320
-            # self.player2.centerx = 400
-            # self.player2.centery = 320
-            # self.player1Arrow.centerx = 40
-            # self.player1Arrow.centery = 320
-            # self.player2Arrow.centerx = 390
-            # self.player2Arrow.centery = 320
             self.screen.blit(self.player1.image,(self.player1.rect.centerx,self.player1.rect.centery))
             self.screen.blit(self.player2.image,(self.player2.rect.centerx,self.player2.rect.centery))
-            self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
-            self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
+            #self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
+            #self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
             if self.powerup == "a":
                self.HealthPower = HealthPowerUp.HealthPowerUp(240,270,pathname("assets/DamagePowerUp.png"))
                self.screen.blit(self.HealthPower.image,(self.HealthPower.rect.centerx,self.HealthPower.rect.centery))
