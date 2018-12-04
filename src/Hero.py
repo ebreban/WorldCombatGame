@@ -1,6 +1,6 @@
 import pygame
 class Hero():
-    def __init__(self, name, x, y, direction, img_file, health):
+    def __init__(self, name, x, y, direction, img_file):
         pygame.sprite.Sprite.__init__(self)
         self.name = name
         self.image = pygame.image.load(img_file).convert_alpha()
@@ -10,34 +10,34 @@ class Hero():
         self.direction = direction
         self.yVel = 0
         self.gravity = 1.2
-        self.isJumping = false
+        self.isJumping = False
         self.health = 100
         self.damage = 100
     
         #flips the character
-        if(self.direction == "right"):
-            self.image = pygame.transform.flip(self.image)
+        #if(self.direction == "right"):
+        #    self.image = pygame.transform.flip(self.image,self.centerx,self,centery)
 
     def jump(self):
         """
             tests to make sure the hero isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 
         """
-        if (isJumping == false):
+        if (self.isJumping == False):
         	self.yVel = -15
-        	self.isJumping = true
+        	self.isJumping = True
     
     
     def moveRight(self):
         """
             moves the character to the right
         """
-        self.rect.x += self.speed
+        self.rect.x += 10
     
     def moveLeft(self):
         """
             moves the character to the left
         """
-        self.rect.x -= self.speed
+        self.rect.x -= 10
     
     def fight(self, opponent):
         """

@@ -1,7 +1,7 @@
 import pygame
 class Arrow(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self, x , y , direction, img_file)
+    def __init__(self, x , y , direction, img_file):
+        pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(img_file).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.centerx  = x
@@ -9,8 +9,8 @@ class Arrow(pygame.sprite.Sprite):
         self.direction = direction
         
         #flips the character
-        if(self.direction == "right"):
-                self.image = pygame.transform.flip()
+        #if(self.direction == "right"):
+        #        self.image = pygame.transform.flip()
     def getPos(self):
         """
             returns the postion of the power-up in a tuple (centerx,centery)

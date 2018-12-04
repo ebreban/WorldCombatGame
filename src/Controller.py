@@ -7,6 +7,10 @@ from src import DamagePowerUp
 from src import HealthPowerUp
 from src import Arrow
 import random
+import os
+
+def pathname(dir):
+    return os.path.join(os.getcwd(),dir)
 
 class Controller:
 
@@ -19,13 +23,12 @@ class Controller:
         pygame.font.init()
         self.Title = pygame.sprite.Group()
         self.state = self.state = "MAIN"
-
-        '''powerup = random.choice(["a","b"])
-        if powerup == "a":
-            self.healthPower = healthPower.HealthPowerUp()
-        elif powerup == "b":
-            self.DamagePower = DamagePower.DamagePowerUp()
-        self.state = "GAME"'''
+        #powerup = random.choice(["a","b"])
+        #if powerup == "a":
+        #   self.HealthPower = HealthPowerUp.HealthPowerUp(0,0,"assets/DamagePowerUp")
+        #elif powerup == "b":
+        #    self.DamagePower = DamagePowerUp.DamagePowerUp(0,0,"assets/HealthPowerUp")
+        #self.state = "GAME"
 
     def mainLoop(self):
         while True:
@@ -41,28 +44,28 @@ class Controller:
                 self.gameLoop()
             elif(self.state == "GAMEOVER"):
                 self.gameOver()
-    def printMouseCoordinates(self, position):
-        mouseFont = pygame.font.SysFont("Helvetica", 32)
-        mouseLabel = mouseFont.render(str(position),1,(0,255,255))
-        self.screen.blit(mouseLabel, (30,30))
+    def printJSON(self, word,x,y,size,r,g,b):
+        mouseFont = pygame.font.SysFont("Helvetica", size)
+        mouseLabel = mouseFont.render(str(word),1,(r,g,b))
+        self.screen.blit(mouseLabel, (x,y))
    
     def displayInstructions(self):
-        Instructions = pygame.image.load('assets/InstructionsScreen.png')
+        Instructions = pygame.image.load(pathname('assets/InstructionsScreen.png'))
         self.screen.blit(Instructions, (0,0))
 
     def displayMainMenu(self):
-        title = pygame.image.load('assets/TitleScreen.png')
+        title = pygame.image.load(pathname('assets/TitleScreen.png'))
         self.screen.blit(title, (0,0))
 
     def pickPlayerScreen(self):
 
-        Select = pygame.image.load('assets/SelectScreen.png')
+        Select = pygame.image.load(pathname('assets/SelectScreen.png'))
         self.screen.blit(Select, (0,0))
     def GameScreen(self):
-        Background = pygame.image.load('assets/GameScreen.png')
+        Background = pygame.image.load(pathname('assets/GameScreen.png'))
         self.screen.blit(Background, (0,0))
     def ScoreScreen(self):
-        scoreBoard = pygame.image.load("assets/ScoreScreen.png")
+        scoreBoard = pygame.image.load(pathname("assets/ScoreScreen.png"))
         self.screen.blit(scoreBoard, (0,0))
         
     def menuLoop(self):
@@ -73,7 +76,7 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if pygame.mouse.get_pressed():
+                if event.type == pygame.MOUSEBUTTONDOWN:
                     if (113+415 > mouse[0] > 113) and (375+45 > mouse[1] > 375):
                     
                         print('click')
@@ -92,50 +95,59 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if (19+143 > mouse[0] > 19) and (17+33 > mouse[1] > 17):
-                    if pygame.mouse.get_pressed():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if (19+143 > mouse[0] > 19) and (17+33 > mouse[1] > 17):
                         self.state = "MAIN"
     def ScoreboardLoop(self):
         while self.state == "SCORE":
             mouse = pygame.mouse.get_pos()
             self.ScoreScreen()
-            pygame.display.update()
+            self.printJSON("oof",283,155,20,0,255,255)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if (12+131 > mouse[0] > 12) and (435+32 > mouse[1] > 435):
-                    if pygame.mouse.get_pressed():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if (12+131 > mouse[0] > 12) and (435+32 > mouse[1] > 435):
                         self.state = "MAIN"
     def SelectLoop(self):
         while self.state == "SELECT":
             mouse = pygame.mouse.get_pos()
             self.pickPlayerScreen()
-            pygame.display.update()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                if 13+140 > mouse[0] > 13 and 21+33 > mouse[1] > 21:
-                    if pygame.mouse.get_pressed():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if 13+140 > mouse[0] > 13 and 21+33 > mouse[1] > 21:
+                    
                         self.state = "MAIN"
-                elif 128+371 > mouse[0] > 128 and 116+80 > mouse[1] > 116:
-                    if pygame.mouse.get_pressed():
+                    elif 128+371 > mouse[0] > 128 and 116+80 > mouse[1] > 116:
+                    
                         self.state = "GAME"
-                        self.player1 = player1.HighHealthFighter()
-                        self.player1Arrow = player1Arrow.Arrow()
-                        self.player2 = player2.HighDamageFighter()
-                        self.player2Arrow = player2Arrow.Arrow()
-                elif 128+371 > mouse[0] > 128 and 294+82 > mouse[1] > 294:
-                    if pygame.mouse.get_pressed():
+                        self.player1 = HighHealthFighter.HighHealthFighter("player 1",0,0,"left",pathname("assets/healthwarrior.png"))
+                        self.player1Arrow = Arrow.Arrow(0,0,"left",pathname("assets/arrow.png"))
+                        self.player2 = HighDamageFighter.HighDamageFighter("player 2",0,0,"right",pathname("assets/damagewarrior.png"))
+                        self.player2Arrow = Arrow.Arrow(0,0,"right",pathname("assets/arrow.png"))
+                    
+                    elif 128+371 > mouse[0] > 128 and 294+82 > mouse[1] > 294:
+                    
                         self.state = "GAME"
-                        self.player2 = player2.HighHealthFighter()
-                        self.player2Arrow = player2Arrow.Arrow()
-                        self.player1 = player1.HighDamageFighter()
-                        self.player1Arrow = player1Arrow.Arrow()
+                        self.player2 = HighHealthFighter.HighHealthFighter("player 2",0,0,"right",pathname("assets/healthwarrior.png"))
+                        self.player2Arrow = Arrow.Arrow(0,0,"right",pathname("assets/arrow.png"))
+                        self.player1 = HighDamageFighter.HighDamageFighter("player 1",0,0,"left",pathname("assets/damagewarrior.png"))
+                        self.player1Arrow = Arrow.Arrow(0,0,"left",pathname("assets/arrow.png"))
+            #self.screen.blit(self.player1,(30,30))
+            #,(self.player2,(0,0)),(self.player1Arrow,(0,0)),(self.player2Arrow,(0,0)))
+            pygame.display.update()             
 
                     
     def gameLoop(self):
         while self.state == "GAME":
             self.GameScreen()
+            self.printJSON("PLAYER 1: ",30,80,30,0,0,255)
+            self.printJSON(str(self.player1.getHealth()),30,110,30,0,0,255)
+
+            self.printJSON("PLAYER 2: ",340,80,30,255,0,0)
+            self.printJSON(str(self.player2.getHealth()),340,110,30,255,0,0)
             pygame.display.update()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -171,7 +183,7 @@ class Controller:
             '''
 
             #data permanance feature
-            timeRunning = font.render('time: '+ str(pygame.time.get_ticks()/1000), False, (250,0,0))
+            """timeRunning = pygame.font.render('time: '+ str(pygame.time.get_ticks()/1000, False), (250,0,0))
             f = open("highscore.json", "rw")
             highscoreDict = json.load(f)
             scorelist = [highscoreDict.values()]
@@ -183,12 +195,10 @@ class Controller:
             newdict = {}
             for i in range(10):
                 newdict[str(i)] = scorelist[i]
-            json.dump(newdict)
+            json.dump(newdict)"""
             
             
 
-            """redraw screen"""
-            #self.screen.blit(self.background, (0, 0))
             '''if(self.hero.health == 0):
                 self.state = "GAMEOVER"'''
             #pygame.display.flip()
