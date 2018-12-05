@@ -56,25 +56,22 @@ The fighting game genre has been one of the most popular in the industry since t
 ***
 
 ## IV. Tasks and Responsibilities
-* You must outline the team member roles and who was responsible for each class/method, both individual and collaborative.
-    * Example:
+
 ### Software Lead - Zane Benjamin-Herchanik
 
 Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. Ensured that the team was fully adhering to all specifications in the project description. He worked with the back end in writing the code for the Controller(). Also learned to use the markdown language to write the proposal.
 
 ### Front End Specialist - Cole Cipp
-(EXAMPLE)
-Front-end lead conducted significant research on using pygame to create visual aspects such as buttons and on-screen text. She used this information to design and program a consistent UI to help the player navigate the title screen, the instructions page, and the “GAME OVER” screen. In addition to implementing the wide majority of the visual element for the UI, she also collaborated with the Software Lead to create a jukebox function that played music and to add sound effects to the menu navigation buttons.
+
+Front-end lead conducted significant research on using pygame to create visual aspects such as buttons and on-screen text. He used this information to design and program a consistent UI to help the player navigate the title screen, the instructions page, and the character selection screen. Used Photoshop to create the images for the menus and worked with the back end to integrate the UI into the back end code.
 
 ### Back End Specialist - Ethan Breban
-(EXAMPLE)
-The back end specialist helped with the “Model” portion of BLOCKBUSTERS by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He also made headway in major game mechanics such as the basic paddle movement and advanced functionality such as the screen-wrap function for the paddle as it approached the ends of the screen. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, as well as develop our high-score database.
+
+The back end specialist helped with the “Model” portion of 'World Combat' by writing the major classes that would be used in the main game, as well as implementing major pygame functionality into each of them. He collaborated with the Front End Specialist in the implementation of the classes into our Controller file, especially the collisions, as well as developing the high-score database. Also implemented other additional features into the game such as making sure that the two characters are always facing one another.
 
 ***
 
 ## V. Testing
-* Describe your testing strategy for your project.
-    * Example
 
 ### Menu Testing
 First, we run Controller() by running the file 'main.py' in the terminal and ensure that it opens the main menu. Then, we click on the 'Instructions' button to ensure that the Instructions menu is opened which should display the controls for the game. Next, we press the 'Exit' button from the Instructions menu to ensure that it returns the user to the main menu. 
