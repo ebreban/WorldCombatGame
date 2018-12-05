@@ -17,13 +17,26 @@ The fighting game genre has been one of the most popular in the industry since t
 ***    
 
 ## II. User Interface Design
-* A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program.
-    * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
-    * You should also have a screenshot of your final GUI
-### GUI Concept:
+
+### GUI Concept
 ![alt text](assets/GUIdrawing.JPG)
 
-### Final GUI:
+#### Main Menu
+The first thing that the user sees when the game is run. The user can view the scoreboard and instructions screens by clicking their respective buttons ("Scoreboard" and "Instructions) and go to the character selection screen by clicking "Fight!"
+
+#### Scoreboard
+This screen shows the user the top 10 scores for the game, based on the amount of time that was spent in the game screen. The user can click the "Main Menu" button to return to the main menu.
+
+#### Instructions
+This screen tells the user the controls for playing the game for both player 1 and player 2. The user can click the "Main Menu" button to return to the main menu.
+
+#### Character Select Screen
+This screen allows the user to select one of two characters by clicking either "Health Fighter" or "Damage Fighter". The user can also click the "Main Menu" button to return to the main menu.
+
+#### Game Screen
+This is the screen where the actual game takes place. The game begins as soon as the user enters this menu. Player 1 and 2 can move around and fight with one another using their arrows as well as boost their stats by picking up power-ups. The game ends when one of the player's character's health is fully depleted. A message is then displayed that says "Game Over" and tells the user if they achieved a top 10 score.
+
+### Final GUI
 ![alt text](assets/TitleScreen.png)
 ![alt text](assets/ScoreScreen.png)
 ![alt text](assets/InstructionsScreen.png)
@@ -32,14 +45,7 @@ The fighting game genre has been one of the most popular in the industry since t
 ***        
 
 ## III. Program Design
-* You should have a list of any additional libraries or modules used (pygame, request) beyond non-standard python.
-    * For each additional module you should include
-        * url for the module documentation
-        * a short description of the module
-* Decide upon a class interface for the classes in your project.
-    * A simple drawing that shows the class relationships in your code (see the sample Proposal document for an example).
-    * This does not need to be overly detailed, but should show how your code fits into the Model/View/Controller paradigm.
-* You should have a list of each of your classes with a description.
+
 ### Non-Standard Libraries and Modules Used
 * Pygame (https://www.pygame.org/) - A module set incorporating many common game development functions into python, developed by Pete Shinners and Pygame Community. Includes crucial graphical elements as well as a musical playback functionality
 
