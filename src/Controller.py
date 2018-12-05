@@ -26,6 +26,7 @@ class Controller:
         self.state = self.state = "MAIN"
         self.temp = "0"
         self.powerup = random.choice(["a","b"])
+        self.highscore=False
         
 
     def mainLoop(self):
@@ -131,19 +132,19 @@ class Controller:
                     elif 128+371 > mouse[0] > 128 and 116+80 > mouse[1] > 116:
                     
                         self.state = "GAME"
-                        self.player1 = HighHealthFighter.HighHealthFighter("player 1",30,320,"left",pathname("assets/healthwarrior.png"))
-                        self.player1Arrow = Arrow.Arrow(40,400,"left",pathname("assets/arrow.png"))
-                        self.player2 = HighDamageFighter.HighDamageFighter("player 2",400,320,"right",pathname("assets/damagewarrior.png"))
-                        self.player2Arrow = Arrow.Arrow(390,400,"right",pathname("assets/arrow.png"))
+                        self.player1 = HighHealthFighter.HighHealthFighter("player 1",30,360,"left",pathname("assets/healthwarrior.png"))
+                        self.player1Arrow = Arrow.Arrow(50,387,"left",pathname("assets/arrow.png"))
+                        self.player2 = HighDamageFighter.HighDamageFighter("player 2",400,360,"right",pathname("assets/damagewarrior.png"))
+                        self.player2Arrow = Arrow.Arrow(390,387,"right",pathname("assets/arrow.png"))
                         self.player2Arrow.speed = -10
                         
                     elif 128+371 > mouse[0] > 128 and 294+82 > mouse[1] > 294:
                     
                         self.state = "GAME"
-                        self.player2 = HighHealthFighter.HighHealthFighter("player 2",400,320,"right",pathname("assets/healthwarrior.png"))
-                        self.player2Arrow = Arrow.Arrow(390,400,"right",pathname("assets/arrow.png"))
-                        self.player1 = HighDamageFighter.HighDamageFighter("player 1",30,320,"left",pathname("assets/damagewarrior.png"))
-                        self.player1Arrow = Arrow.Arrow(40,400,"left",pathname("assets/arrow.png"))
+                        self.player2 = HighHealthFighter.HighHealthFighter("player 2",400,360,"right",pathname("assets/healthwarrior.png"))
+                        self.player2Arrow = Arrow.Arrow(390,387,"right",pathname("assets/arrow.png"))
+                        self.player1 = HighDamageFighter.HighDamageFighter("player 1",30,360,"left",pathname("assets/damagewarrior.png"))
+                        self.player1Arrow = Arrow.Arrow(50,387,"left",pathname("assets/arrow.png"))
                         self.player2Arrow.speed = -10
                         
             #if self.temp == "y":
@@ -152,44 +153,69 @@ class Controller:
             #elif self.temp == "z":
             #    self.screen.blits(self.player1.image,(30,30)),(self.player2.image,(0,0)),(self.player1Arrow.image,(0,0)),(self.player2Arrow.image,(0,0))
             pygame.display.update()             
+    def inScreen(self, player):
+        if player.rect.centerx < 11 or player.rect.centerx > 639:
+            return False
+        elif player.rect.centery < 11 or player.rect.centery > 469:
+            return False
+        else:
+            return True
 
-                    
     def displayHealth(self):
         self.printJSON("PLAYER 1: ",30,80,30,0,0,255)
         self.printJSON(str(self.player1.getHealth()),30,110,30,0,0,255)
+        self.printJSON("Damage Power: ",30,140,30,0,0,255)
+        self.printJSON(str(self.player1.getDamage()),30,170,30,0,0,255)
         self.printJSON("PLAYER 2: ",340,80,30,255,0,0)
         self.printJSON(str(self.player2.getHealth()),340,110,30,255,0,0)
+        self.printJSON("Damage Power: ",340,140,30,0,0,255)
+        self.printJSON(str(self.player2.getDamage()),340,170,30,0,0,255)
     def gameLoop(self):
         pygame.key.set_repeat(10,10)
+        timeRunning = pygame.time.get_ticks()
+        powerupGroup = pygame.sprite.Group()
+
+        arrow1group = pygame.sprite.Group()
+        arrow2group = pygame.sprite.Group()
+
+        arrow1group.add(self.player1Arrow)
+        arrow2group.add(self.player2Arrow)
+
+        spawn_time = timeRunning
         while self.state == "GAME":
+            self.powerup = random.choice(["a","b"])
             self.GameScreen()
-            self.screen.blit(self.player1.image,(self.player1.rect.centerx,self.player1.rect.centery))
-            self.screen.blit(self.player2.image,(self.player2.rect.centerx,self.player2.rect.centery))
-            self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
-            self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
-            if self.powerup == "a":
-               self.HealthPower = HealthPowerUp.HealthPowerUp(240,270,pathname("assets/DamagePowerUp.png"))
-               self.screen.blit(self.HealthPower.image,(self.HealthPower.rect.centerx,self.HealthPower.rect.centery))
-            elif self.powerup == "b":
-                self.DamagePower = DamagePowerUp.DamagePowerUp(240,270,pathname("assets/HealthPowerUp.png"))
-                self.screen.blit(self.DamagePower.image,(self.DamagePower.rect.centerx,self.DamagePower.rect.centery))
+            self.players = pygame.sprite.Group(self.player1,self.player2)
+            # self.screen.blit(self.player1.image,(self.player1.rect.centerx,self.player1.rect.centery))
+            # self.screen.blit(self.player2.image,(self.player2.rect.centerx,self.player2.rect.centery))
+            # self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
+            # self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
+
+            if (pygame.time.get_ticks()-spawn_time)/1000 > 10:
+                if self.powerup == "b":
+                   #self.HealthPower = HealthPowerUp.HealthPowerUp(240,270,pathname("assets/DamagePowerUp.png"))
+                   #self.screen.blit(self.HealthPower.image,(self.HealthPower.rect.centerx,self.HealthPower.rect.centery))
+                   powerupGroup.add(HealthPowerUp.HealthPowerUp(270,270,pathname("assets/HealthPowerUp.png")))
+                elif self.powerup == "a":
+                    #self.DamagePower = DamagePowerUp.DamagePowerUp(240,270,pathname("assets/HealthPowerUp.png"))
+                    #self.screen.blit(self.DamagePower.image,(self.DamagePower.rect.centerx,self.DamagePower.rect.centery))
+                    powerupGroup.add(DamagePowerUp.DamagePowerUp(270,270,pathname("assets/DamagePowerUp.png")))
+                spawn_time = pygame.time.get_ticks()
             self.displayHealth()      
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
+                    #if self.inScreen(self.player1):
                     if(event.key == pygame.K_w):
                         self.player1.jump()
-                        
-                    elif(event.key == pygame.K_a):
-                        self.player1.moveLeft()
-                        
+                    elif(event.key == pygame.K_a):   
+                        self.player1.moveLeft()    
                     elif(event.key == pygame.K_d):
                         self.player1.moveRight()
-                        
-                    elif(event.key == pygame.K_UP):
+                #if self.inScreen(self.player2):                   
+                    if(event.key == pygame.K_UP):
                         self.player2.jump()
-                        
                     elif(event.key == pygame.K_LEFT):
                         self.player2.moveLeft()
                         
@@ -201,21 +227,21 @@ class Controller:
                         
                     elif(event.key == pygame.K_m):
                         self.player2Arrow.fired =True
-                        
+
+
+
             if self.player2Arrow.fired == False:
                 self.player2Arrow.setPos(self.player2.rect.centerx,self.player2.rect.centery+20)
             if self.player1Arrow.fired == False:
                 self.player1Arrow.setPos(self.player1.rect.centerx,self.player1.rect.centery+20)
-            self.player2Arrow.update()
-            self.player1Arrow.update()
             if self.player2Arrow.rect.centerx < 0 or self.player2Arrow.rect.centerx > 640: 
-                self.player2Arrow.setPos(self.player2.rect.centerx,self.player2.rect.centery+20)
+                self.player2Arrow.setPos(self.player2.rect.centerx+20,self.player2.rect.centery+20)
                 self.player2Arrow.fired = False
             if self.player1Arrow.rect.centerx < 0 or self.player1Arrow.rect.centerx > 640: 
-                self.player1Arrow.setPos(self.player1.rect.centerx,self.player1.rect.centery+20)
+                self.player1Arrow.setPos(self.player1.rect.centerx+20,self.player1.rect.centery+20)
                 self.player1Arrow.fired = False
 
-            if self.player2.rect.centerx < self.player1.rect.centerx:
+            if (self.player2.rect.centerx-19)  < self.player1.rect.centerx + 25:
                 if 640-self.player2.rect.centerx > 150 and self.player1.rect.centerx > 150:
                     self.player2.rect.centerx += 150
                     self.player1.rect.centerx -= 150
@@ -223,9 +249,56 @@ class Controller:
                     self.player2.rect.centerx += 150
                 elif 640-self.player2.rect.centerx < 150 and self.player1.rect.centerx > 150:
                     self.player1.rect.centerx -= 150
-            self.player1.update()
-            self.player2.update()
-            pygame.display.update() 
+                else:
+                    self.player1.rect.centerx -= 10
+            
+            if pygame.sprite.collide_rect(self.player1,self.player2):
+                print("Collision!!!")
+
+            #collisions
+            for player in [self.player2,self.player1]:
+                powerlist = pygame.sprite.spritecollide(player,powerupGroup,True)
+                for i in powerlist:
+                    print(player.health)
+                    print(player.damage)
+                    i.applyUpgrade(player)
+                    print(player.health)
+                    print(player.damage)
+            self.displayHealth()      
+            arrow1_hit_list = pygame.sprite.spritecollide(self.player2,arrow1group, False)
+            arrow2_hit_list = pygame.sprite.spritecollide(self.player1,arrow2group, False)
+
+            if(arrow1_hit_list != []):
+                for i in arrow1_hit_list:
+                    i.setPos(self.player1.rect.centerx+20,self.player1.rect.centery+20)
+                    i.fired = False
+                    self.player2.health-=self.player1.damage         
+
+            if(arrow2_hit_list != []):
+                for i in arrow2_hit_list:
+                    i.setPos(self.player2.rect.centerx+20,self.player2.rect.centery+20)
+                    i.fired = False
+                    self.player1.health-=self.player2.damage 
+
+            if self.player1.health <= 0:
+                self.player1.kill()
+                self.update_scores(pygame.time.get_ticks()-timeRunning)
+                self.state="GAMEOVER"
+
+            if self.player2.health <= 0:
+                self.player2.kill()
+                self.update_scores(pygame.time.get_ticks()-timeRunning)
+                self.state="GAMEOVER"
+
+
+            self.players.update()
+            self.player2Arrow.update()
+            self.player1Arrow.update()
+            self.players.draw(self.screen)
+            arrow1group.draw(self.screen)
+            arrow2group.draw(self.screen)
+            powerupGroup.draw(self.screen)
+            pygame.display.flip()
 
                  
 
@@ -241,38 +314,42 @@ class Controller:
             '''
 
         #data permanance feature
-            timeRunning = pygame.time.get_ticks()/1000
-            f = open("highscore.json", "r")
-            highscoreDict = json.load(f)
-            scoreList = list(highscoreDict.values())
-            for i in range(len(scoreList)):
-                if timeRunning < scoreList[i]:
-                    scoreList.append(timeRunning)
-                    break
-            scoreList.sort()
-            newdict = {}
-            for i in range(10):
-                newdict[str(i)] = scoreList[i]
-            json.dumps(newdict)
-             
-
-            '''if(self.hero.health == 0):
-                self.state = "GAMEOVER"'''
-            #pygame.display.flip()
+    def update_scores(self,timeRunning):
+        timeRunning /= 1000
+        f = open("highscore.json", "r")
+        highscoreDict = json.load(f)
+        f.close()
+        scoreList = list(highscoreDict.values())
+        print("now printing list")
+        print(scoreList)
+        scoreList.append(timeRunning)
+        # for i in range(len(scoreList)):
+        #     if timeRunning < scoreList[i]:
+        #         scoreList.append(timeRunning)
+        #         break
+        scoreList.sort()
+        print(scoreList)
+        newdict = {}
+        for i in range(10):
+            newdict[str(i+1)] = scoreList[i]
+        f = open("highscore.json", "w")
+        json.dump(newdict,f)
+        f.close()
+        if timeRunning in list(newdict.values()):
+            self.highscore=True
             
 
 
     def gameOver(self):
-        self.player1.kill()
-        self.player1Arrow.kill()
-        self.player2.kill()
-        self.player2Arrow.kill()
-        self.healthPower.kill()
-        self.DamagePower.kill()
         myfont = pygame.font.SysFont(None, 30)
-        message = myfont.render('Game Over', False, (0,0,0))
+        message = myfont.render('Game Over', False, (255,255,255))
         self.screen.blit(message, (self.width/2,self.height/2))
+        if self.highscore:
+            scoreMessage = myfont.render("Top 10 score has been set!!!", False, (255,255,255))
+            self.screen.blit(scoreMessage,(300,300))
+
         pygame.display.flip()
+
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

@@ -1,5 +1,5 @@
 import pygame
-class Hero():
+class Hero(pygame.sprite.Sprite):
     def __init__(self, name, x, y, direction, img_file):
         pygame.sprite.Sprite.__init__(self)
         self.name = name
@@ -26,7 +26,7 @@ class Hero():
         #if (self.isJumping == False):
         #	self.yVel = -15
         #	self.isJumping = True
-        self.rect.centery -= 80
+        self.rect.centery -= 40
         self.isJumping = True
     
     def moveRight(self):
@@ -95,6 +95,7 @@ class Hero():
         #    self.rect.centery  += 10
         
         #implements the isJump
+
         if (self.isJumping):
             self.rect.centery += self.gravity
             if(self.rect.centery == self.characterGround):

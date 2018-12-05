@@ -10,6 +10,7 @@ class Arrow(pygame.sprite.Sprite):
         self.speed = 10
         self.shoot = False
         self.fired = False
+        self.damage = 10
         
 
         if(self.direction == "right"):
@@ -26,6 +27,11 @@ class Arrow(pygame.sprite.Sprite):
         """
         self.rect.centerx = x
         self.rect.centery = y
+    def getDamage(self):
+        """
+            returns the damage the arrow does to opponents
+        """
+        return self.damage
     def jump(self):
         """
             tests to make sure the arrow isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 

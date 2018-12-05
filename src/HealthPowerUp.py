@@ -7,11 +7,11 @@ class HealthPowerUp(pygame.sprite.Sprite):
         self.hval = 50
         self.rect.centerx  = x
         self.rect.centery  = y
-    def applyHealthUpgrade(self , Hero):
+    def applyUpgrade(self , hero):
         """
             adds the health upgrade
         """
-        hero.setHealth(hero.getHealth + hval)
+        hero.health = hero.health + self.hval
 
     
     def getPos(self):
