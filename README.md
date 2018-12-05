@@ -37,7 +37,7 @@ The fighting game genre has been one of the most popular in the industry since t
 
 ### Class and File Relationships
 
-![alt text](/assets/CS110Flowchart.png)
+![alt text](assets/CS110Flowchart.png)
 
 ### List of Classes
 * __Hero__ - A  parent class that defines the main fighter of the game - the class defines movement features such as moving left, moving right, and jumping. The class also defines values for the damage and health of the fighter. The class also contains a fight method which returns true or false depending on whether or not the hero has no more health. The class also contains accessor and mutator methods for all values defined in the class
