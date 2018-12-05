@@ -147,11 +147,7 @@ class Controller:
                         self.player1Arrow = Arrow.Arrow(50,387,"left",pathname("assets/arrow.png"))
                         self.player2Arrow.speed = -10
                         
-            #if self.temp == "y":
-            #    self.screen.blit(self.player1.image, (30,30))
-            #    pygame.display.flip()
-            #elif self.temp == "z":
-            #    self.screen.blits(self.player1.image,(30,30)),(self.player2.image,(0,0)),(self.player1Arrow.image,(0,0)),(self.player2Arrow.image,(0,0))
+           
             pygame.display.update()             
     def inScreen(self, player):
         if player.rect.centerx < 11 or player.rect.centerx > 639:
@@ -186,34 +182,25 @@ class Controller:
             self.powerup = random.choice(["a","b"])
             self.GameScreen()
             self.players = pygame.sprite.Group(self.player1,self.player2)
-            # self.screen.blit(self.player1.image,(self.player1.rect.centerx,self.player1.rect.centery))
-            # self.screen.blit(self.player2.image,(self.player2.rect.centerx,self.player2.rect.centery))
-            # self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
-            # self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
+            
 
-            if (pygame.time.get_ticks()-spawn_time)/1000 > 10:
+            if (pygame.time.get_ticks()-spawn_time)/1000 > 15:
                 if self.powerup == "b":
-                   #self.HealthPower = HealthPowerUp.HealthPowerUp(240,270,pathname("assets/DamagePowerUp.png"))
-                   #self.screen.blit(self.HealthPower.image,(self.HealthPower.rect.centerx,self.HealthPower.rect.centery))
-                   powerupGroup.add(HealthPowerUp.HealthPowerUp(270,270,pathname("assets/HealthPowerUp.png")))
+                   powerupGroup.add(HealthPowerUp.HealthPowerUp(290,270,pathname("assets/HealthPowerUp.png")))
                 elif self.powerup == "a":
-                    #self.DamagePower = DamagePowerUp.DamagePowerUp(240,270,pathname("assets/HealthPowerUp.png"))
-                    #self.screen.blit(self.DamagePower.image,(self.DamagePower.rect.centerx,self.DamagePower.rect.centery))
-                    powerupGroup.add(DamagePowerUp.DamagePowerUp(270,270,pathname("assets/DamagePowerUp.png")))
+                    powerupGroup.add(DamagePowerUp.DamagePowerUp(290,270,pathname("assets/DamagePowerUp.png")))
                 spawn_time = pygame.time.get_ticks()
             self.displayHealth()      
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
-                    #if self.inScreen(self.player1):
                     if(event.key == pygame.K_w):
                         self.player1.jump()
                     elif(event.key == pygame.K_a):   
                         self.player1.moveLeft()    
                     elif(event.key == pygame.K_d):
-                        self.player1.moveRight()
-                #if self.inScreen(self.player2):                   
+                        self.player1.moveRight()                  
                     if(event.key == pygame.K_UP):
                         self.player2.jump()
                     elif(event.key == pygame.K_LEFT):
@@ -302,16 +289,6 @@ class Controller:
 
                  
 
-            #check for collisions
-
-            #if player = arrow(part of group)(use sprite collide, group kill):
-                
-            ''' arrowgroup = pygame.sprite.group.add
-            arrowgroup.add(arrowobject)
-            checking for collisions, call pygame.sprite.spritecollide(player,arrowgroup,True<means the arrow is killed>)
-            iterate through the list for block_hit_list = collide for block in list: health -=1
-            for player collisions pygame.sprite.collide_rect()
-            '''
 
         #data permanance feature
     def update_scores(self,timeRunning):
@@ -323,10 +300,6 @@ class Controller:
         print("now printing list")
         print(scoreList)
         scoreList.append(timeRunning)
-        # for i in range(len(scoreList)):
-        #     if timeRunning < scoreList[i]:
-        #         scoreList.append(timeRunning)
-        #         break
         scoreList.sort()
         print(scoreList)
         newdict = {}
