@@ -158,14 +158,14 @@ class Controller:
             return True
 
     def displayHealth(self):
-        self.printJSON("PLAYER 1: ",30,80,22,0,0,255)
-        self.printJSON(str(self.player1.getHealth()),160,80,22,0,0,255)
-        self.printJSON("Damage Power: ",30,100,22,0,0,255)
-        self.printJSON(str(self.player1.getDamage()),190,100,22,0,0,255)
-        self.printJSON("PLAYER 2: ",340,80,22,255,0,0)
-        self.printJSON(str(self.player2.getHealth()),490,80,22,255,0,0)
-        self.printJSON("Damage Power: ",340,100,22,255,0,0)
-        self.printJSON(str(self.player2.getDamage()),490,100,22,255,0,0)
+        self.printJSON("PLAYER 1: ",39,80,22,0,0,255)
+        self.printJSON(str(self.player1.getHealth()),169,80,22,0,0,255)
+        self.printJSON("Damage Power: ",39,100,22,0,0,255)
+        self.printJSON(str(self.player1.getDamage()),199,100,22,0,0,255)
+        self.printJSON("PLAYER 2: ",349,80,22,255,0,0)
+        self.printJSON(str(self.player2.getHealth()),499,80,22,255,0,0)
+        self.printJSON("Damage Power: ",349,100,22,255,0,0)
+        self.printJSON(str(self.player2.getDamage()),509,100,22,255,0,0)
     def gameLoop(self):
         pygame.key.set_repeat(10,10)
         timeRunning = pygame.time.get_ticks()
