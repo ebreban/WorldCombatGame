@@ -100,12 +100,6 @@ class Hero(pygame.sprite.Sprite):
             implements the isJumping functionality
             returns nothing
         """
-        #implements switching the direction the character faces
-        #if self.direction == "right" :
-        #    self.rect.centerx  += 10
-        #    self.rect.centery  += 10
-        #implements the isJump
-
         if (self.isJumping):
             self.rect.centery += self.gravity
             if(self.rect.centery == self.characterGround):

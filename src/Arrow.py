@@ -39,9 +39,7 @@ class Arrow(pygame.sprite.Sprite):
             tests to make sure the arrow isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true
             returns nothing
         """
-        #if (self.isJumping == False):
-        #   self.yVel = -15
-        #   self.isJumping = True
+        
         self.rect.centery -= 80
         self.isJumping = True
 
