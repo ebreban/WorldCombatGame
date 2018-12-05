@@ -11,7 +11,7 @@ class Arrow(pygame.sprite.Sprite):
         self.shoot = False
         self.fired = False
         self.damage = 10
-        
+
 
         if(self.direction == "right"):
                 self.image = pygame.transform.flip(self.image,True,False)
@@ -23,7 +23,9 @@ class Arrow(pygame.sprite.Sprite):
 
     def setPos(self,x , y):
         """
-            sets the position of the power-up 
+            takes x and y coordinates as the paremeter
+            sets the position of the power-up
+            returns nothing
         """
         self.rect.centerx = x
         self.rect.centery = y
@@ -34,29 +36,33 @@ class Arrow(pygame.sprite.Sprite):
         return self.damage
     def jump(self):
         """
-            tests to make sure the arrow isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 
+            tests to make sure the arrow isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true
+            returns nothing
         """
         #if (self.isJumping == False):
         #   self.yVel = -15
         #   self.isJumping = True
         self.rect.centery -= 80
         self.isJumping = True
-    
+
     def moveRight(self):
         """
             moves the arrow to the right
+            returns nothing
         """
         self.rect.centerx += 10
-    
+
     def moveLeft(self):
         """
             moves the arrow to the left
+            returns nothing
         """
-        self.rect.centerx -= 10    
+        self.rect.centerx -= 10
 
     def update(self):
-        #implements the flip
-        if(self.fired):    
+        """
+            updates the arrow's speed if it is being fired
+            returns nothing
+        """
+        if(self.fired):
             self.rect.centerx  += self.speed
-
-        

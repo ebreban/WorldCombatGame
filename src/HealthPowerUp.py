@@ -9,11 +9,13 @@ class HealthPowerUp(pygame.sprite.Sprite):
         self.rect.centery  = y
     def applyUpgrade(self , hero):
         """
-            adds the health upgrade
+            takes one parameter, the hero which is receiving the upgrade
+            applies the health upgrade to the correct character
+            returns nothing
         """
         hero.health = hero.health + self.hval
 
-    
+
     def getPos(self):
         """
             returns the postion of the power-up in a tuple (centerx,centery)
@@ -22,7 +24,9 @@ class HealthPowerUp(pygame.sprite.Sprite):
 
     def setPos(self,x , y):
         """
-            sets the position of the power-up 
+            takes x and y coordinates as parameters
+            sets the position of the power-up
+            returns nothing
         """
         self.rect.centerx = x
-        self.rect.centery = y    
+        self.rect.centery = y
