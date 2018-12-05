@@ -20,7 +20,15 @@ The fighting game genre has been one of the most popular in the industry since t
 * A wireframe or drawing of the user interface concept along with a short description of the interface. You should have one for each screen in your program.
     * For example, if your program has a start screen, game screen, and game over screen, you should include a wireframe / screenshot / drawing of each one and a short description of the components
     * You should also have a screenshot of your final GUI
+### GUI Concept:
+![alt text](assets/GUIdrawing.png)
 
+### Final GUI:
+![alt text](assets/TitleScreen.png)
+![alt text](assets/ScoreScreen.png)
+![alt text](assets/InstructionsScreen.png)
+![alt text](assets/SelectScreen.png)
+![alt text](assets/gamescreenshot.png)
 ***        
 
 ## III. Program Design
