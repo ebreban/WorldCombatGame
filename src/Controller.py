@@ -132,18 +132,18 @@ class Controller:
                     
                         self.state = "GAME"
                         self.player1 = HighHealthFighter.HighHealthFighter("player 1",30,320,"left",pathname("assets/healthwarrior.png"))
-                        self.player1Arrow = Arrow.Arrow(40,360,"left",pathname("assets/arrow.png"))
+                        self.player1Arrow = Arrow.Arrow(40,400,"left",pathname("assets/arrow.png"))
                         self.player2 = HighDamageFighter.HighDamageFighter("player 2",400,320,"right",pathname("assets/damagewarrior.png"))
-                        self.player2Arrow = Arrow.Arrow(390,360,"right",pathname("assets/arrow.png"))
+                        self.player2Arrow = Arrow.Arrow(390,400,"right",pathname("assets/arrow.png"))
                         self.player2Arrow.speed = -10
                         
                     elif 128+371 > mouse[0] > 128 and 294+82 > mouse[1] > 294:
                     
                         self.state = "GAME"
                         self.player2 = HighHealthFighter.HighHealthFighter("player 2",400,320,"right",pathname("assets/healthwarrior.png"))
-                        self.player2Arrow = Arrow.Arrow(390,320,"right",pathname("assets/arrow.png"))
+                        self.player2Arrow = Arrow.Arrow(390,400,"right",pathname("assets/arrow.png"))
                         self.player1 = HighDamageFighter.HighDamageFighter("player 1",30,320,"left",pathname("assets/damagewarrior.png"))
-                        self.player1Arrow = Arrow.Arrow(40,320,"left",pathname("assets/arrow.png"))
+                        self.player1Arrow = Arrow.Arrow(40,400,"left",pathname("assets/arrow.png"))
                         self.player2Arrow.speed = -10
                         
             #if self.temp == "y":
@@ -154,51 +154,66 @@ class Controller:
             pygame.display.update()             
 
                     
+    def displayHealth(self):
+        self.printJSON("PLAYER 1: ",30,80,30,0,0,255)
+        self.printJSON(str(self.player1.getHealth()),30,110,30,0,0,255)
+        self.printJSON("PLAYER 2: ",340,80,30,255,0,0)
+        self.printJSON(str(self.player2.getHealth()),340,110,30,255,0,0)
     def gameLoop(self):
-        #pygame.key.set_repeat(10,10)
+        pygame.key.set_repeat(10,10)
         while self.state == "GAME":
             self.GameScreen()
             self.screen.blit(self.player1.image,(self.player1.rect.centerx,self.player1.rect.centery))
             self.screen.blit(self.player2.image,(self.player2.rect.centerx,self.player2.rect.centery))
-            #self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
-            #self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
+            self.screen.blit(self.player1Arrow.image,(self.player1Arrow.rect.centerx,self.player1Arrow.rect.centery))
+            self.screen.blit(self.player2Arrow.image,(self.player2Arrow.rect.centerx,self.player2Arrow.rect.centery))
             if self.powerup == "a":
                self.HealthPower = HealthPowerUp.HealthPowerUp(240,270,pathname("assets/DamagePowerUp.png"))
                self.screen.blit(self.HealthPower.image,(self.HealthPower.rect.centerx,self.HealthPower.rect.centery))
             elif self.powerup == "b":
                 self.DamagePower = DamagePowerUp.DamagePowerUp(240,270,pathname("assets/HealthPowerUp.png"))
                 self.screen.blit(self.DamagePower.image,(self.DamagePower.rect.centerx,self.DamagePower.rect.centery))
-            pygame.display.flip()
-            pygame.display.update() 
-                    
-            self.printJSON("PLAYER 1: ",30,80,30,0,0,255)
-            self.printJSON(str(self.player1.getHealth()),30,110,30,0,0,255)
-
-            self.printJSON("PLAYER 2: ",340,80,30,255,0,0)
-            self.printJSON(str(self.player2.getHealth()),340,110,30,255,0,0)
-            pygame.display.update()
-
+            self.displayHealth()      
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if(event.key == pygame.K_w):
                         self.player1.jump()
+                        
                     elif(event.key == pygame.K_a):
-                        self.player1 .moveLeft()
+                        self.player1.moveLeft()
+                        
                     elif(event.key == pygame.K_d):
-                        self.player1 .moveRight()
-                        pygame.display.update()
+                        self.player1.moveRight()
+                        
                     elif(event.key == pygame.K_UP):
                         self.player2.jump()
+                        
                     elif(event.key == pygame.K_LEFT):
                         self.player2.moveLeft()
+                        
                     elif(event.key == pygame.K_RIGHT):
                         self.player2.moveRight()
+                        
                     elif(event.key == pygame.K_e):
-                        self.player1Arrow.update()
+                        self.player1Arrow.fired =True
+                        
                     elif(event.key == pygame.K_m):
-                        self.player2Arrow.update()
+                        self.player2Arrow.fired =True
+                        
+            if self.player2Arrow.fired == False:
+                self.player2Arrow.setPos(self.player2.rect.centerx,self.player2.rect.centery+20)
+            if self.player1Arrow.fired == False:
+                self.player1Arrow.setPos(self.player1.rect.centerx,self.player1.rect.centery+20)
+            self.player2Arrow.update()
+            self.player1Arrow.update()
+            if self.player2Arrow.rect.centerx < 0 or self.player2Arrow.rect.centerx > 640: 
+                self.player2Arrow.setPos(self.player2.rect.centerx,self.player2.rect.centery+20)
+                self.player2Arrow.fired = False
+            if self.player1Arrow.rect.centerx < 0 or self.player1Arrow.rect.centerx > 640: 
+                self.player1Arrow.setPos(self.player1.rect.centerx,self.player1.rect.centery+20)
+                self.player1Arrow.fired = False
 
             if self.player2.rect.centerx < self.player1.rect.centerx:
                 if 640-self.player2.rect.centerx > 150 and self.player1.rect.centerx > 150:
@@ -210,7 +225,7 @@ class Controller:
                     self.player1.rect.centerx -= 150
             self.player1.update()
             self.player2.update()
-            pygame.display.update()
+            pygame.display.update() 
 
                  
 
@@ -239,7 +254,7 @@ class Controller:
             for i in range(10):
                 newdict[str(i)] = scoreList[i]
             json.dumps(newdict)
-            
+             
 
             '''if(self.hero.health == 0):
                 self.state = "GAMEOVER"'''

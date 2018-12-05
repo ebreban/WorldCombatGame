@@ -9,6 +9,7 @@ class Arrow(pygame.sprite.Sprite):
         self.direction = direction
         self.speed = 10
         self.shoot = False
+        self.fired = False
         
 
         if(self.direction == "right"):
@@ -24,8 +25,32 @@ class Arrow(pygame.sprite.Sprite):
             sets the position of the power-up 
         """
         self.rect.centerx = x
-        self.rect.centery = y    
+        self.rect.centery = y
+    def jump(self):
+        """
+            tests to make sure the arrow isnt already jumping , then assigns a yVel(the highest point in the jump) and sets isJumping to true 
+        """
+        #if (self.isJumping == False):
+        #   self.yVel = -15
+        #   self.isJumping = True
+        self.rect.centery -= 80
+        self.isJumping = True
+    
+    def moveRight(self):
+        """
+            moves the arrow to the right
+        """
+        self.rect.centerx += 10
+    
+    def moveLeft(self):
+        """
+            moves the arrow to the left
+        """
+        self.rect.centerx -= 10    
 
     def update(self):
         #implements the flip
-        self.rect.centerx  += self.speed
+        if(self.fired):    
+            self.rect.centerx  += self.speed
+
+        
