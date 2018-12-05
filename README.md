@@ -59,7 +59,7 @@ The fighting game genre has been one of the most popular in the industry since t
 
 ### Software Lead - Zane Benjamin-Herchanik
 
-Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. Ensured that the team was fully adhering to all specifications in the project description. He worked with the back end in writing the code for the Controller(). Also learned to use the markdown language to write the proposal.
+Worked as integration specialist by helping organize the code for the main game into the proper MVC format, which allowed all portions of the code to be run from a single file. Ensured that the team was fully adhering to all specifications in the project description. He worked with the front end in writing the code for the Controller(). Also learned to use the markdown language to write the proposal.
 
 ### Front End Specialist - Cole Cipp
 
